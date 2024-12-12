@@ -1,4 +1,4 @@
-module github.com/machi12/util
+module github.com/huahuaLover/util
 
 go 1.21
 

@@ -81,9 +81,9 @@ func milenageF1(opc, k, _rand, sqn, amf, mac_a, mac_s []uint8) error {
 	}
 
 	// NOTE: No longer compute macS
-	//if mac_s != nil {
-	//	copy(mac_s[0:], tmp1[8:16])
-	//}
+	if mac_s != nil {
+		copy(mac_s[0:], tmp1[8:16])
+	}
 
 	return nil
 }
@@ -147,7 +147,7 @@ func milenageF2345(opc, k, _rand, res, ck, ik, ak, akstar []uint8) error {
 
 	if ak != nil {
 		// NOTE: Since AK has become 8 bytes, assign the first 8 bytes of tmp3 to AK
-		copy(ak[0:], tmp3[0:8]) // f5
+		copy(ak[0:], tmp3[0:6]) // f5
 	}
 	/*
 		if (aes_128_encrypt_block(k, tmp1, tmp3))
